@@ -49,7 +49,7 @@ void crearJugadores()
 
         if (jugador2.getNombre() != "No definido")
         {
-            cout << "¡Bienvenido " << jugador2.getNombre() << " !" << endl;
+            cout << "¡Bienvenido " << jugador2.getNombre() << "!" << endl;
             verificacion2 = true;
         }
         else
@@ -64,5 +64,9 @@ int main()
 {
     cout << "ADIVINA LA PALABRA" <<endl;
     crearJugadores();
+
+    /*string prueba="hopla";
+
+    cout<<prueba[2]<<"\n"<<prueba.size()<<endl;*/
     return 0;
 }

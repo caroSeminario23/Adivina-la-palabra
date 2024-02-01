@@ -64,7 +64,7 @@ definirPista()
         cout << "Escriba una pista que permita adivinar la palabra: ";
         cin >> pista;
 
-        confirmacion = confirmacion("palabra", this->palabra, palabra)
+        confirmacion = confirmacion("pista", this->pista, pista)
     } while (confirmacion);
 
     /*
@@ -100,6 +100,21 @@ void aumentarError()
 private:
 string palabra, pista;
 int nErrores;
+char *letras, *completado;
+
+void contarLetras(){
+    int nPalabras;
+    nPalabras = palabra.lenght;
+
+    *letras = new int[nPalabras];
+    *completado = new int[nPalabras];
+}
+
+void completarArregloLetras(){
+    for(int i=0; i<letras.size; i++){
+        //letras[i]=palabra;
+    }
+}
 
 void contabilizarErrores()
 {
