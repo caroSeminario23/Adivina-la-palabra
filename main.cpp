@@ -6,9 +6,60 @@ using namespace std;
 
 Jugador jugador1, jugador2;
 
+void saludo();
+void crearJugador();
 void crearJugadores();
+void jugar();
+void despedida();
 
-void crearJugadores()
+void saludo(){
+    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+    cout<<"   BIENVENIDO AL JUEGO 'ADIVINA LA PALABRA'   "<<endl;
+    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+}
+
+void crearJugador(Jugador jugador, int nJugador){
+    string nombre;
+    bool verificacion=false;
+    
+    do
+    {
+        cout << "JUGADOR "<<nJugador;
+        cout << "\nIngrese su nombre: ";
+        cin >> nombre;
+        jugador.setNombre(nombre);
+
+        if (jugador1.getNombre() != "No definido")
+        {
+            cout << "¡Bienvenido " << jugador.getNombre() << "!" << endl;
+            verificacion = true;
+        }
+        else
+        {
+            cout << "Error en el registro" << endl
+                 << "Vuelva a intentarlo" << endl;
+        }
+    } while (verificacion == false);
+}
+
+void crearJugadores(){
+    for (int i=0; i<2; i++){
+        crearJugador(jugador1, 1);
+        crearJugador(jugador2, 2);
+    }
+}
+
+void jugar(){
+    
+}
+
+void despedida(){
+    cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+    cout<<"   GRACIAS POR PARTICIPAR   "<<endl;
+    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+}
+
+/*void crearJugadores()
 {
     string nombre;
     bool verificacion1 = false, verificacion2 = false;
@@ -28,7 +79,7 @@ void crearJugadores()
 
         if (jugador1.getNombre() != "No definido")
         {
-            cout << "¡Bienvenido " << jugador1.getNombre() << " !" << endl;
+            cout << "¡Bienvenido " << jugador1.getNombre() << "!" << endl;
             verificacion1 = true;
         }
         else
@@ -58,15 +109,12 @@ void crearJugadores()
                  << "Vuelva a intentarlo" << endl;
         }
     } while (verificacion2 == false);
-}
+}*/
 
 int main()
 {
-    cout << "ADIVINA LA PALABRA" <<endl;
+    saludo();
     crearJugadores();
-
-    /*string prueba="hopla";
-
-    cout<<prueba[2]<<"\n"<<prueba.size()<<endl;*/
+    despedida();
     return 0;
 }

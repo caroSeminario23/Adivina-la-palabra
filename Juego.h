@@ -8,27 +8,59 @@ using namespace std;
 
 class Juego{
     public:
-        Juego();
+        Juego(){
+            nErrores=0;
+            cout<<"Juego creado"<<endl;
+        };
 
-        string getNombre(){
-            return nombre;
+        ~Juego(){
+            cout<<"Juego destruido"<<endl;
         }
 
-        int getNJugadores(){
-            return nJugadores;
-        }
+    void establecerPalabra()
+    {
+        string palabra;
+        bool confirmacion;
 
-    protected:
-        string nombre;
-        int nJugadores;
+        do
+        {
+            cout << "Ingrese la palabra a adivinar: ";
+            cin >> palabra;
+            cout << "Palabra: " << palabra;
+
+            confirmacion = confirmacion("palabra", this->palabra, palabra);
+        } while (confirmacion);
+    }
+
+    private:
+        string palabra, pista;
+        int nErrores;
+        char *completando;
     
-        void setNombre(string nombre){
-            this->nombre=nombre;
-        }
+    bool confirmacion(string cuestion, string original, string verificando)
+    {
+        cout << "¿Su " << cuestion << " es: " << palabra << " ? (S/N)";
+        cin >> rpta;
 
-        void setNJugadores(int n){
-            nJugadores=n;
+        if (rpta == 'S')
+        {
+            original = verificando;
+            cout << "Guardado exitoso" << endl;
+            system("clear");
+            return true;
         }
+        else if (rpta == 'N')
+        {
+            cout << "Ingrese nuevamente la información";
+            return false;
+        }
+        else
+        {
+            cout << "Caracter no reconocido";
+            return false;
+        }
+    }
+    
 
 };
 

@@ -33,10 +33,6 @@ class Jugador {
             this->nombre=nombre;
         }
 
-        void setPuntaje(int puntaje){
-            this->puntaje=puntaje;
-        }
-
         //otras funciones
         void sumarPuntaje(int puntos){
             puntaje+=puntos;
