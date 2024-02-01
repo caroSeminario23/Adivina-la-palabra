@@ -8,12 +8,40 @@ using namespace std;
 
 class Jugador {
     public:
-        Jugador();
-        void definirNombre(){
-            cout<<"Ingrese su nombre: ";
-            cin>>nombre;
-            cout<<"Nombre: "<<nombre;
-        };
+        //constructor
+        Jugador(){
+            nombre="No definido";
+            puntaje=0;
+            cout<<"Jugador creado"<<endl;
+        }
+        
+        //destructor
+        ~Jugador(){
+            cout<<"Jugador destruido"<<endl;
+        }
+
+        //getter y setters
+        string getNombre(){
+            return nombre;
+        }
+
+        int getPuntaje(){
+            return puntaje;
+        }
+
+        void setNombre(string nombre){
+            this->nombre=nombre;
+        }
+
+        void setPuntaje(int puntaje){
+            this->puntaje=puntaje;
+        }
+
+        //otras funciones
+        void sumarPuntaje(int puntos){
+            puntaje+=puntos;
+        }
+
     private:
         string nombre;
         int puntaje;
