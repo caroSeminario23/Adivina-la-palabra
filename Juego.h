@@ -4,7 +4,7 @@
 using namespace std;
 
 #ifndef JUEGO.H
-#define JUEGO .H
+#define JUEGO.H
 
 class Juego
 {
@@ -32,7 +32,7 @@ public:
             cout << "Palabra: " << palabra;
 
             verificacion = confirmacion("palabra", this->palabra, palabra);
-        } while (confirmacion);
+        } while (verificacion);
     }
 
     void definirPista()
@@ -46,7 +46,7 @@ public:
             cin >> pista;
 
             verificacion = confirmacion("pista", this->pista, pista);
-        } while (confirmacion);
+        } while (verificacion);
     }
 
     void jugar()
