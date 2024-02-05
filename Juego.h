@@ -52,6 +52,8 @@ public:
 
     void jugar()
     {
+        crearArregloDeVerificacion();
+        crearArregloPosiciones();
         solicitarLetra();
         decisionFinal();
     }

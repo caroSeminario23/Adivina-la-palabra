@@ -61,7 +61,7 @@ void despedida(){
     cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
     cout<<"   GRACIAS POR PARTICIPAR   "<<endl;
     cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-    system("PAUSE");
+    system("pause");
 }
 
 int main()
