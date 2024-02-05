@@ -30,7 +30,7 @@ void crearJugador(Jugador jugador, int nJugador){
         cin >> nombre;
         jugador.setNombre(nombre);
 
-        if (jugador1.getNombre() != "No definido")
+        if (jugador.getNombre() != "No definido")
         {
             cout << "¡Bienvenido " << jugador.getNombre() << "!" << endl;
             verificacion = true;
