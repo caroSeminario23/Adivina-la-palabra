@@ -3,8 +3,8 @@
 
 using namespace std;
 
-#ifndef JUEGO.H
-#define JUEGO.H
+#ifndef JUEGO_H
+#define JUEGO_H
 
 class Juego
 {
@@ -13,7 +13,7 @@ public:
     {
         nErrores = 0;
         cout << "Juego creado" << endl;
-    };
+    }
 
     ~Juego()
     {
@@ -27,12 +27,11 @@ public:
 
         do
         {
-            cout << "Ingrese la palabra a adivinar: ";
+            cout << "\nIngrese la palabra a adivinar: ";
             cin >> palabra;
-            cout << "Palabra: " << palabra;
 
             verificacion = confirmacion("palabra", this->palabra, palabra);
-        } while (verificacion);
+        } while (verificacion==false);
     }
 
     void definirPista()
@@ -42,11 +41,13 @@ public:
 
         do
         {
-            cout << "Escriba una pista que permita adivinar la palabra: ";
-            cin >> pista;
+            cout << "\nEscriba una pista que permita adivinar la palabra: ";
+            cin.ignore();
+            getline(cin, pista);
+            //cin >> pista;
 
             verificacion = confirmacion("pista", this->pista, pista);
-        } while (verificacion);
+        } while (verificacion==false);
     }
 
     void jugar()
@@ -63,24 +64,25 @@ private:
     bool confirmacion(string cuestion, string &original, string verificando)
     {
         char rpta;
-        cout << "¿Su " << cuestion << " es: " << palabra << " ? (S/N)";
+        cout << "¿Su " << cuestion << " es: " << verificando << "? (S/N)" << endl;
+        cout << "Respuesta: ";
         cin >> rpta;
 
-        if (rpta == 'S')
+        if ((rpta == 'S')||(rpta =='s'))
         {
             original = verificando;
-            cout << "Guardado exitoso" << endl;
+            cout << "\nGuardado exitoso" << endl;
             system("clear");
             return true;
         }
-        else if (rpta == 'N')
+        else if ((rpta == 'N') || (rpta == 'n'))
         {
-            cout << "Ingrese nuevamente la información";
+            cout << "\nIngrese nuevamente la información";
             return false;
         }
         else
         {
-            cout << "Caracter no reconocido";
+            cout << "\nCaracter no reconocido";
             return false;
         }
     }
