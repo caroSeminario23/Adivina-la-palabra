@@ -6,6 +6,7 @@
 using namespace std;
 
 Jugador jugador1, jugador2;
+Jugador jugadores[2]={jugador1, jugador2};
 
 void saludo();
 void crearJugador();
@@ -19,7 +20,7 @@ void saludo(){
     cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 }
 
-void crearJugador(Jugador jugador, int nJugador){
+void crearJugador(Jugador &jugador, int nJugador){
     string nombre;
     bool verificacion=false;
     
@@ -45,8 +46,7 @@ void crearJugador(Jugador jugador, int nJugador){
 
 void crearJugadores(){
     for (int i=0; i<2; i++){
-        crearJugador(jugador1, 1);
-        crearJugador(jugador2, 2);
+        crearJugador(jugadores[i], i+1);
     }
 }
 
@@ -61,6 +61,7 @@ void despedida(){
     cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
     cout<<"   GRACIAS POR PARTICIPAR   "<<endl;
     cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+    system("PAUSE");
 }
 
 int main()
