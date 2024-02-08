@@ -12,12 +12,12 @@ class Jugador {
         Jugador(){
             nombre="No definido";
             puntaje=0;
-            cout<<"Jugador creado"<<endl;
+            //cout<<"Jugador creado"<<endl;
         }
         
         //destructor
         ~Jugador(){
-            cout<<"Jugador destruido"<<endl;
+            //cout<<"Jugador destruido"<<endl;
         }
 
         //getter y setters

@@ -115,12 +115,14 @@ private:
     }
 
     void mostrarArregloDeVerificacion(){
-        cout<<"/n"<<endl;
-        cout<<"/nProgreso:"<<endl;
+        cout<<"\n========================"<<endl;
+        //cout<<"ARREGLO DE VERIFICACION:"<<endl;
+        cout<<"Progreso de letras encontradas:"<<endl;
         for (int i = 0; i < palabra.size(); i++)
         {
             cout<<completando[i];
         }
+        cout<<"\n";
     }
 
     void crearArregloPosiciones()
@@ -160,6 +162,7 @@ private:
 
     bool buscarLetra(char letra)
     {
+        cout<<"\n........................"<<endl;
         cout<<"Buscando la letra..."<<endl;
         bool verificador;
         int acertados = 0;
@@ -178,7 +181,7 @@ private:
             }
         }
 
-        cout<<"N° de certados: "<<acertados<<endl;
+        cout<<"N° de acertados: "<<acertados<<endl;
         if (acertados == 0)
         {
             return false;
@@ -219,13 +222,13 @@ private:
     {
         if (nErrores == 3 && (palabra.size() > encontrados))
         {
-            cout << "------------------" << endl;
+            cout << "\n------------------" << endl;
             cout << "   GAME OVER :(   " << endl;
             cout << "------------------" << endl;
         }
         else
         {
-            cout << "------------------" << endl;
+            cout << "\n------------------" << endl;
             cout << "    ¡VICTORIA!    " << endl;
             cout << "------------------" << endl;
         }
@@ -233,10 +236,12 @@ private:
 
     void solicitarLetra()
     {
-        cout<<"\nSolicitud de letras"<<endl;
+        cout<<"\n==============================="<<endl;
+        cout<<"Solicitud de letras"<<endl;
         cout<<"N de errores: "<<nErrores<<endl;
         cout<<"Tamaño de la palabra: "<<palabra.size()<<endl;
-        cout<<"Letras encontradas: "<<encontrados<<endl;
+        cout<<"==============================="<<endl;
+        //cout<<"Letras encontradas: "<<encontrados<<endl;
 
         mostrarArregloDeVerificacion();
 
@@ -265,6 +270,7 @@ private:
                 contabilizarErrores();
                 
             }
+            cout<<"\n........................"<<endl;
             mostrarArregloDeVerificacion();
         }
     }

@@ -58,7 +58,8 @@ void crearJugadores(){
         crearJugador(jugadores[i], i+1);
     }
 
-    cout << "Presiona Enter para continuar...";
+    cout << "\nPresiona Enter para continuar...";
+    cin.ignore();
     cin.get(); // Espera a que el usuario presione Enter
 }
 
