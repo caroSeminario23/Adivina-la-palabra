@@ -60,7 +60,7 @@ public:
 
 private:
     string palabra, pista;
-    int nErrores, *arregloPos, encontrados;
+    int nErrores, *arregloPos, nLetrasAPos, encontrados=0;
     char *completando;
 
     bool confirmacion(string cuestion, string &original, string verificando)
@@ -91,27 +91,49 @@ private:
 
     void crearArregloDeVerificacion()
     {
+        cout<<"Creando arreglo de verificación"<<endl;
         int nPalabras;
+        cout<<"Palabra: "<<palabra<<endl;
         nPalabras = palabra.size();
+        cout<<"N de palabras: "<<nPalabras<<endl;
 
         completando = new char[nPalabras];
+        //cout<<"Tamaño de arreglo: "<<sizeof(completando)<<endl;
 
         for (int i = 0; i < nPalabras; i++)
         {
             completando[i] = '-';
         }
+
+        cout<<"Prueba de arreglo: "<<completando[2]<<endl;
+        cout<<"Tamaño de arreglo: "<<nPalabras<<endl;
+        for (int i = 0; i < nPalabras; i++)
+        {
+            cout<<completando[i];
+        }
     }
 
     void crearArregloPosiciones()
     {
+        cout<<"\nCreando arreglo de posiciones"<<endl;
         int nPalabras;
 
         nPalabras = palabra.size();
+        cout<<"N de letras: "<<nPalabras<<endl;
         arregloPos = new int[nPalabras];
+        nLetrasAPos = nPalabras;
+        cout<<"N de letras 2: "<<nLetrasAPos<<endl;
 
-        for (int i = 0; i < nPalabras; i++)
+        for (int i = 0; i < nLetrasAPos; i++)
         {
             arregloPos[i] = i;
+        }
+
+        cout<<"Posicion: "<<arregloPos[2]<<endl;
+        cout<<"Tamaño de arregloPos: "<<nLetrasAPos<<endl;
+        for (int i = 0; i < nLetrasAPos; i++)
+        {
+            cout<<arregloPos[i];
         }
     }
 
@@ -128,11 +150,15 @@ private:
 
     bool buscarLetra(char letra)
     {
+        cout<<"Buscando la letra..."<<endl;
         bool verificador;
         int acertados = 0;
 
-        for (int i = 0; i < sizeof(arregloPos); i++)
+        cout<<"Tamaño del arreglo de posiciones: "<<nLetrasAPos<<endl;
+
+        for (int i = 0; i < nLetrasAPos; i++)
         {
+            cout<<"Letra: "<<palabra[arregloPos[i]]<<endl;
             if (palabra[arregloPos[i]] == letra)
             {
                 completando[arregloPos[i]] = letra;
@@ -142,6 +168,7 @@ private:
             }
         }
 
+        cout<<"Acertados: "<<acertados<<endl;
         if (acertados == 0)
         {
             return false;
@@ -154,19 +181,28 @@ private:
 
     void reducirArregloPos(int tamaño, int encontrados)
     {
+        cout<<"Reduciendo arreglo de posiciones"<<endl;
         int *arregloPos2 = new int[palabra.size() - encontrados];
 
-        for (int i = 0; i < sizeof(arregloPos); i++)
+        int marcados = 0;
+        int m = 0;
+
+        for (int i = 0; i < nLetrasAPos; i++)
         {
-            int m = 0;
             if (arregloPos[i] != (palabra.size() + 1))
             {
                 arregloPos2[m] = arregloPos[i];
                 m++;
+            }else{
+                marcados++;
             }
         }
 
         arregloPos = arregloPos2;
+        nLetrasAPos = nLetrasAPos-marcados;
+
+        cout<<"n marcados: "<<marcados<<endl;
+        cout<<"n letras en arreglo de pos: "<<nLetrasAPos<<endl;
     }
 
     void decisionFinal()
@@ -187,6 +223,11 @@ private:
 
     void solicitarLetra()
     {
+        cout<<"\nSolicitud de letras"<<endl;
+        cout<<"N de errores: "<<nErrores<<endl;
+        cout<<"Tamaño de la palabra: "<<palabra.size()<<endl;
+        cout<<"Letras encontradas: "<<encontrados<<endl;
+
         char letra;
         bool encontrada;
 
@@ -196,6 +237,7 @@ private:
             cin >> letra;
 
             encontrada = buscarLetra(letra);
+            cout<<"Se encontró? "<<encontrada<<endl;
 
             if (encontrada)
             {
