@@ -28,3 +28,5 @@ Finalizado
 <center>
 <img src="Imagenes\Imagen4.png" alt="Imagen4" width="60%" height="40%">
 </center>
+
+![Imagen 1](Imagenes\Imagen1.png)
