@@ -12,12 +12,12 @@ public:
     Juego()
     {
         nErrores = 0;
-        cout << "Juego creado" << endl;
+        //cout << "Juego creado" << endl;
     }
 
     ~Juego()
     {
-        cout << "Juego destruido" << endl;
+        //cout << "Juego destruido" << endl;
     }
 
     void establecerPalabra()
@@ -53,6 +53,7 @@ public:
     void jugar()
     {
         crearArregloDeVerificacion();
+        //mostrarArregloDeVerificacion();
         crearArregloPosiciones();
         solicitarLetra();
         decisionFinal();
@@ -74,7 +75,7 @@ private:
         {
             original = verificando;
             cout << "\nGuardado exitoso" << endl;
-            system("clear");
+            //system("clear");
             return true;
         }
         else if ((rpta == 'N') || (rpta == 'n'))
@@ -91,11 +92,11 @@ private:
 
     void crearArregloDeVerificacion()
     {
-        cout<<"Creando arreglo de verificación"<<endl;
+        //cout<<"Creando arreglo de verificación"<<endl;
         int nPalabras;
-        cout<<"Palabra: "<<palabra<<endl;
+        //cout<<"Palabra: "<<palabra<<endl;
         nPalabras = palabra.size();
-        cout<<"N de palabras: "<<nPalabras<<endl;
+        //cout<<"N de palabras: "<<nPalabras<<endl;
 
         completando = new char[nPalabras];
         //cout<<"Tamaño de arreglo: "<<sizeof(completando)<<endl;
@@ -105,9 +106,18 @@ private:
             completando[i] = '-';
         }
 
-        cout<<"Prueba de arreglo: "<<completando[2]<<endl;
-        cout<<"Tamaño de arreglo: "<<nPalabras<<endl;
-        for (int i = 0; i < nPalabras; i++)
+        //cout<<"Prueba de arreglo: "<<completando[2]<<endl;
+        //cout<<"Tamaño de arreglo: "<<nPalabras<<endl;
+        /*for (int i = 0; i < nPalabras; i++)
+        {
+            cout<<completando[i];
+        }*/
+    }
+
+    void mostrarArregloDeVerificacion(){
+        cout<<"/n"<<endl;
+        cout<<"/nProgreso:"<<endl;
+        for (int i = 0; i < palabra.size(); i++)
         {
             cout<<completando[i];
         }
@@ -115,26 +125,26 @@ private:
 
     void crearArregloPosiciones()
     {
-        cout<<"\nCreando arreglo de posiciones"<<endl;
+        //cout<<"\nCreando arreglo de posiciones"<<endl;
         int nPalabras;
 
         nPalabras = palabra.size();
-        cout<<"N de letras: "<<nPalabras<<endl;
+        //cout<<"N de letras: "<<nPalabras<<endl;
         arregloPos = new int[nPalabras];
         nLetrasAPos = nPalabras;
-        cout<<"N de letras 2: "<<nLetrasAPos<<endl;
+        //cout<<"N de letras 2: "<<nLetrasAPos<<endl;
 
         for (int i = 0; i < nLetrasAPos; i++)
         {
             arregloPos[i] = i;
         }
 
-        cout<<"Posicion: "<<arregloPos[2]<<endl;
-        cout<<"Tamaño de arregloPos: "<<nLetrasAPos<<endl;
-        for (int i = 0; i < nLetrasAPos; i++)
+        //cout<<"Posicion: "<<arregloPos[2]<<endl;
+        //cout<<"Tamaño de arregloPos: "<<nLetrasAPos<<endl;
+        /*for (int i = 0; i < nLetrasAPos; i++)
         {
             cout<<arregloPos[i];
-        }
+        }*/
     }
 
     void aumentarError()
@@ -154,11 +164,11 @@ private:
         bool verificador;
         int acertados = 0;
 
-        cout<<"Tamaño del arreglo de posiciones: "<<nLetrasAPos<<endl;
+        //cout<<"Tamaño del arreglo de posiciones: "<<nLetrasAPos<<endl;
 
         for (int i = 0; i < nLetrasAPos; i++)
         {
-            cout<<"Letra: "<<palabra[arregloPos[i]]<<endl;
+            //cout<<"Letra: "<<palabra[arregloPos[i]]<<endl;
             if (palabra[arregloPos[i]] == letra)
             {
                 completando[arregloPos[i]] = letra;
@@ -168,7 +178,7 @@ private:
             }
         }
 
-        cout<<"Acertados: "<<acertados<<endl;
+        cout<<"N° de certados: "<<acertados<<endl;
         if (acertados == 0)
         {
             return false;
@@ -181,7 +191,7 @@ private:
 
     void reducirArregloPos(int tamaño, int encontrados)
     {
-        cout<<"Reduciendo arreglo de posiciones"<<endl;
+        //cout<<"Reduciendo arreglo de posiciones"<<endl;
         int *arregloPos2 = new int[palabra.size() - encontrados];
 
         int marcados = 0;
@@ -201,8 +211,8 @@ private:
         arregloPos = arregloPos2;
         nLetrasAPos = nLetrasAPos-marcados;
 
-        cout<<"n marcados: "<<marcados<<endl;
-        cout<<"n letras en arreglo de pos: "<<nLetrasAPos<<endl;
+        //cout<<"n marcados: "<<marcados<<endl;
+        //cout<<"n letras en arreglo de pos: "<<nLetrasAPos<<endl;
     }
 
     void decisionFinal()
@@ -228,26 +238,34 @@ private:
         cout<<"Tamaño de la palabra: "<<palabra.size()<<endl;
         cout<<"Letras encontradas: "<<encontrados<<endl;
 
+        mostrarArregloDeVerificacion();
+
         char letra;
         bool encontrada;
 
         while (nErrores < 3 && (palabra.size() > encontrados))
         {
-            cout << "Escriba la letra que cree está contenida en la palabra: ";
+            cout << "\nEscriba la letra que cree está contenida en la palabra: ";
             cin >> letra;
 
             encontrada = buscarLetra(letra);
-            cout<<"Se encontró? "<<encontrada<<endl;
+            //cout<<"Se encontró? "<<encontrada<<endl;
+            cout<<"¿Se encontró? ";
 
             if (encontrada)
             {
+                cout<<"Sí"<<endl;
                 reducirArregloPos(palabra.size(), encontrados);
+                
             }
             else
             {
+                cout<<"No"<<endl;
                 aumentarError();
                 contabilizarErrores();
+                
             }
+            mostrarArregloDeVerificacion();
         }
     }
 };
