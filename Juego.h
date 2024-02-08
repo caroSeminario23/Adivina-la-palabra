@@ -115,14 +115,15 @@ private:
     }
 
     void mostrarArregloDeVerificacion(){
-        cout<<"\n========================"<<endl;
+        cout<<"\n==============================="<<endl;
         //cout<<"ARREGLO DE VERIFICACION:"<<endl;
         cout<<"Progreso de letras encontradas:"<<endl;
         for (int i = 0; i < palabra.size(); i++)
         {
             cout<<completando[i];
         }
-        cout<<"\n";
+        cout<<"\n==============================="<<endl;
+        //cout<<"\n";
     }
 
     void crearArregloPosiciones()
@@ -270,7 +271,7 @@ private:
                 contabilizarErrores();
                 
             }
-            cout<<"\n........................"<<endl;
+            cout<<"........................"<<endl;
             mostrarArregloDeVerificacion();
         }
     }

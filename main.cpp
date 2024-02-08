@@ -113,6 +113,7 @@ void despedida(){
     cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 
     cout << "Presiona Enter para continuar...";
+    cin.ignore();
     cin.get(); // Espera a que el usuario presione Enter
 }
 
