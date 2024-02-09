@@ -98,12 +98,12 @@ void jugar(){
     cout<<"1"<<endl;
 
     system("clear");
-    cout<<"TURNO DEL JUGADOR "<<anfitrion<<" :"<<endl;
+    cout<<"TURNO DEL JUGADOR "<<anfitrion<<":"<<endl;
     juego1.establecerPalabra();
     juego1.definirPista();
 
     system("clear");
-    cout<<"TURNO DEL JUGADOR "<<descifrador<<" :"<<endl;
+    cout<<"TURNO DEL JUGADOR "<<descifrador<<":"<<endl;
     juego1.jugar();
 }
 

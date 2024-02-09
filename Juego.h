@@ -52,6 +52,7 @@ public:
 
     void jugar()
     {
+        cout<<"\nPista: "<<getPista()<<endl;
         crearArregloDeVerificacion();
         //mostrarArregloDeVerificacion();
         crearArregloPosiciones();
@@ -63,6 +64,14 @@ private:
     string palabra, pista;
     int nErrores, *arregloPos, nLetrasAPos, encontrados=0;
     char *completando;
+
+    string getPista(){
+        return pista;
+    }
+
+    string getPalabra(){
+        return palabra;
+    }
 
     bool confirmacion(string cuestion, string &original, string verificando)
     {
@@ -226,6 +235,8 @@ private:
             cout << "\n------------------" << endl;
             cout << "   GAME OVER :(   " << endl;
             cout << "------------------" << endl;
+
+            cout<<"La palabra era: "<< getPalabra() <<endl;
         }
         else
         {

@@ -4,6 +4,7 @@
 Juego que consiste en adivinar la palabra que el otro jugador indique en 3 intentos como máximo.
 - **N° de jugadores:** 2
 - Elección aleatoria del orden de jugadores
+- Apto para el sistema operativo MacOS
 
 ## Estado del proyecto
 Finalizado
