@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "Jugador.h"
 
 using namespace std;
 
@@ -50,14 +51,14 @@ public:
         } while (verificacion==false);
     }
 
-    void jugar()
+    void jugar(Jugador &jugador1, Jugador &jugador2)
     {
+        //cin.ignore();
         cout<<"\nPista: "<<getPista()<<endl;
         crearArregloDeVerificacion();
-        //mostrarArregloDeVerificacion();
         crearArregloPosiciones();
         solicitarLetra();
-        decisionFinal();
+        decisionFinal(jugador1, jugador2);
     }
 
 private:
@@ -228,7 +229,7 @@ private:
         //cout<<"n letras en arreglo de pos: "<<nLetrasAPos<<endl;
     }
 
-    void decisionFinal()
+    void decisionFinal(Jugador jugando, Jugador escogiendo)
     {
         if (nErrores == 3 && (palabra.size() > encontrados))
         {
@@ -237,12 +238,20 @@ private:
             cout << "------------------" << endl;
 
             cout<<"La palabra era: "<< getPalabra() <<endl;
+
+            escogiendo.sumarPuntaje(50);
+            encontrados=0;
+            nErrores=0;
         }
         else
         {
             cout << "\n------------------" << endl;
             cout << "    ¡VICTORIA!    " << endl;
             cout << "------------------" << endl;
+
+            jugando.sumarPuntaje(100);
+            encontrados=0;
+            nErrores=0;
         }
     }
 
