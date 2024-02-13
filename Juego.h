@@ -229,7 +229,7 @@ private:
         //cout<<"n letras en arreglo de pos: "<<nLetrasAPos<<endl;
     }
 
-    void decisionFinal(Jugador jugando, Jugador escogiendo)
+    void decisionFinal(Jugador &jugando, Jugador &escogiendo)
     {
         if (nErrores == 3 && (palabra.size() > encontrados))
         {
