@@ -29,3 +29,8 @@ Finalizado
 <center>
 <img src="Imagenes\Imagen4.png" alt="Imagen4" width="60%" height="40%">
 </center>
+
+## Actualizaciones
+- 2 modos de juego
+    - Partida única
+    - Versus de 3 partidas
